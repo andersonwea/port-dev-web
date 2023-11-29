@@ -8,8 +8,24 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        'purple-500': '#9747FF',
+      },
+    },
+  },
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: '#9747FF',
+          },
+        },
+      },
+    }),
+  ],
 }
 export default config
