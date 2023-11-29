@@ -13,6 +13,7 @@ import {
 import { Logo } from './Logo'
 import React from 'react'
 import { UserRound } from 'lucide-react'
+import { Avatar } from './Avatar'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -36,6 +37,8 @@ export function Header() {
     },
   ]
 
+  const session = true
+
   return (
     <Navbar shouldHideOnScroll maxWidth="xl" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -46,11 +49,13 @@ export function Header() {
         />
 
         <NavbarBrand>
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent justify="center" className="max-md:hidden flex gap-4">
+      <NavbarContent justify="center" className="max-md:hidden flex gap-8">
         <NavbarItem>
           <Link color="foreground" href="/discorver">
             Descobrir
@@ -74,31 +79,39 @@ export function Header() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="max-md:hidden">
-          <Button
-            as={Link}
-            href="/login"
-            variant="bordered"
-            color="primary"
-            size="sm"
-            startContent={<UserRound />}
-            className="font-semibold text-lg"
-          >
-            Logar
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            href="/sign-up"
-            className="font-semibold text-lg text-white"
-            variant="solid"
-            size="sm"
-            color="primary"
-          >
-            Criar conta
-          </Button>
-        </NavbarItem>
+        {session ? (
+          <NavbarItem>
+            <Avatar />
+          </NavbarItem>
+        ) : (
+          <>
+            <NavbarItem className="max-md:hidden">
+              <Button
+                as={Link}
+                href="/login"
+                variant="bordered"
+                color="primary"
+                size="sm"
+                startContent={<UserRound />}
+                className="font-semibold text-lg"
+              >
+                Logar
+              </Button>
+            </NavbarItem>
+            <NavbarItem>
+              <Button
+                as={Link}
+                href="/sign-up"
+                className="font-semibold text-lg text-white"
+                variant="solid"
+                size="sm"
+                color="primary"
+              >
+                Criar conta
+              </Button>
+            </NavbarItem>
+          </>
+        )}
       </NavbarContent>
 
       <NavbarMenu>

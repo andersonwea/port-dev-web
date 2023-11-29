@@ -14,11 +14,11 @@ export function Logo() {
           className="min-w-[154px]"
         />
       </div>
-      <div className="hidden max-sm:block">
+      <div className="hidden max-sm:block w-[104px]">
         <Image
           src={logo2}
           alt="logomarca do Port Dev"
-          width={154}
+          width={134}
           height={40}
           className="w-[154px] h-[40px]"
         />
