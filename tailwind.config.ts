@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import { nextui } from '@nextui-org/react'
+import { text } from 'stream/consumers'
 
 const config: Config = {
   content: [
@@ -21,7 +22,10 @@ const config: Config = {
       themes: {
         light: {
           colors: {
-            primary: '#9747FF',
+            primary: {
+              foreground: '#FFFFFF',
+              DEFAULT: '#9747FF',
+            },
           },
         },
       },
