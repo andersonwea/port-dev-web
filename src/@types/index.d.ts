@@ -13,3 +13,8 @@ export type Portfolio = {
   visited: number
   user: User
 }
+
+export type Skills = {
+  id: string
+  name: string
+}
