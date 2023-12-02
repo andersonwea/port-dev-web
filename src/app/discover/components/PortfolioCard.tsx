@@ -11,7 +11,7 @@ interface PortfolioCardProps {
 export function PortfolioCard({ portfolio, index }: PortfolioCardProps) {
   return (
     <MotionCard index={index}>
-      <Card isFooterBlurred className="min-h-[300px]">
+      <Card isFooterBlurred className="max-h-[300px] max-w-[387px]">
         <Image
           src="https://cdn.sanity.io/images/tlr8oxjg/production/5c3120359be5c4f225cd7b817811217041b759ab-1192x668.png?w=3840&q=80&fit=clip&auto=format"
           alt="porfolio crad background"
