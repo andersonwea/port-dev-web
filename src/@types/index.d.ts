@@ -1,9 +1,9 @@
 export type User = {
   name: string
-  last_name: string
-  avatar_url: string
+  lastName: string
+  avatarUrl: string
   title: string
-  job_level: string
+  jobLevel: string
 }
 
 export type Portfolio = {
