@@ -57,7 +57,7 @@ export function Header() {
 
       <NavbarContent justify="center" className="max-md:hidden flex gap-8">
         <NavbarItem>
-          <Link color="foreground" href="/discorver">
+          <Link color="foreground" href="/discover">
             Descobrir
           </Link>
         </NavbarItem>
