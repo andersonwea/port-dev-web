@@ -50,39 +50,47 @@ export function Search({ skills }: SearchProps) {
     router.push(`?techs=${params.join(',')}`)
   }
 
+  const disabledItems: string[] = []
+
+  skills.forEach(
+    (skill, index) =>
+      search.includes(skill.name) && disabledItems.push((index + 1).toString()),
+  )
+
   return (
     <div className="max-w-[400px] mx-auto mt-14">
       <div className=" text-3xl font-bold block text-center">
         <Heading className="text-3xl">Descobrir</Heading>
         <Autocomplete
           aria-label="Descobrir"
-          placeholder="Procure por tecnologia"
+          placeholder="Procure por tecnologias"
           defaultItems={skills}
           className="max-w-md mt-5"
           disableSelectorIconRotation
           size="sm"
           selectorIcon={<ChevronsDownUp size={18} />}
           onSelectionChange={handleAddTech}
+          disabledKeys={disabledItems}
         >
           {(item) => (
-            <AutocompleteItem key={item.id}>{item.name}</AutocompleteItem>
+            <AutocompleteItem key={item.id} value={item.name}>
+              {item.name}
+            </AutocompleteItem>
           )}
         </Autocomplete>
       </div>
-      {search.length > 0 && (
-        <div className="flex gap-2 flex-wrap mt-6">
-          {search.map((tech, index) => (
-            <Chip
-              key={tech + index}
-              variant="solid"
-              color="primary"
-              onClose={() => handleRemoveTech(tech)}
-            >
-              {tech}
-            </Chip>
-          ))}
-        </div>
-      )}
+      <div className="flex gap-2 flex-wrap mt-4 min-h-7">
+        {search.map((tech, index) => (
+          <Chip
+            key={tech + index}
+            variant="solid"
+            color="primary"
+            onClose={() => handleRemoveTech(tech)}
+          >
+            {tech}
+          </Chip>
+        ))}
+      </div>
     </div>
   )
 }

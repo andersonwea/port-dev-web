@@ -8,19 +8,25 @@ import {
   getPortfolios,
 } from '@/actions/portfolio/getPortfolios'
 import { ArrowUp } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
 
 let page = 2
-let end = false
 
 export function LoadMorePortfolios() {
+  const [isEnded, setIsEnded] = React.useState(false)
   const [portfolios, setPortfolios] = React.useState<PortfolioCardElement[]>([])
   const { ref, inView } = useInView()
 
+  const searchParams = useSearchParams()
+
   React.useEffect(() => {
     if (inView) {
-      getPortfolios(page).then((res) => {
+      getPortfolios({
+        page,
+        search: searchParams.get('techs') || '',
+      }).then((res) => {
         if (res.length === 0) {
-          return (end = true)
+          return setIsEnded(true)
         }
 
         setPortfolios([...portfolios, ...res])
@@ -33,7 +39,7 @@ export function LoadMorePortfolios() {
     <section>
       <div className="grid grid-cols-3 gap-9 mt-14">{portfolios}</div>
       <div className="mx-auto w-12 mt-5" ref={ref}>
-        {end ? (
+        {isEnded ? (
           <Button
             as={Link}
             href="#discover"
