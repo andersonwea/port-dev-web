@@ -20,17 +20,17 @@ export function PortfolioCard({ portfolio, index }: PortfolioCardProps) {
         />
         <CardFooter>
           <User
-            name={portfolio.user.name + ' ' + portfolio.user.last_name}
+            name={portfolio.user.name + ' ' + portfolio.user.lastName}
             description={portfolio.user.title}
             avatarProps={{
-              src: portfolio.user.avatar_url,
+              src: portfolio.user.avatarUrl,
               isBordered: true,
               color: 'primary',
               style: { minWidth: '40px', height: '40px' },
             }}
           />
 
-          <div className="flex gap-1">
+          <div className="flex gap-1 ml-auto">
             <span className="text-purple-500 flex gap-2 items-center pl-3">
               <Eye color="#9747ff" />
               {portfolio.visited}
