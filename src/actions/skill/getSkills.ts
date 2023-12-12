@@ -1,19 +1,13 @@
 'use server'
 
-import { Skills } from '@/@types'
+import { InMemorySkillsRepository } from '@/database/in-memory-skills-repository'
 
 export async function getSkills() {
-  try {
-    const response = await fetch('http://localhost:3001/skills')
+  const inMemorySkillsRepository = new InMemorySkillsRepository()
 
-    const skills = (await response.json()) as Skills[]
+  const skills = inMemorySkillsRepository.findMany()
 
-    return {
-      skills,
-    }
-  } catch (err) {
-    console.log(err)
-
-    throw new Error('Falha ao obter as skills.')
+  return {
+    skills,
   }
 }

@@ -1,10 +1,20 @@
-import { Portfolio } from '@/@types'
-import { Button, Card, CardFooter, Image, User } from '@nextui-org/react'
+import { Portfolio, User } from '@/@types'
+import {
+  Button,
+  Card,
+  CardFooter,
+  Image,
+  User as AvatarUser,
+} from '@nextui-org/react'
 import { Eye, ThumbsUp } from 'lucide-react'
 import { MotionCard } from './MotionCard'
 
+export interface PortfolioUser extends Portfolio {
+  user: User
+}
+
 interface PortfolioCardProps {
-  portfolio: Portfolio
+  portfolio: PortfolioUser
   index: number
 }
 
@@ -19,11 +29,12 @@ export function PortfolioCard({ portfolio, index }: PortfolioCardProps) {
           className="h-full w-full object-cover"
         />
         <CardFooter>
-          <User
+          <AvatarUser
             name={portfolio.user.name + ' ' + portfolio.user.lastName}
             description={portfolio.user.title}
             avatarProps={{
               src: portfolio.user.avatarUrl,
+              fallback: portfolio.user.name[0] + portfolio.user.lastName[0],
               isBordered: true,
               color: 'primary',
               style: { minWidth: '40px', height: '40px' },

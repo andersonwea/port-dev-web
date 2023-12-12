@@ -6,14 +6,14 @@ import { Button, Card, CardBody } from '@nextui-org/react'
 import { Plus } from 'lucide-react'
 
 export default async function Dashboard() {
-  const { portfolios } = await getUserPortfolios()
+  const { portfoliosWithUser } = await getUserPortfolios()
 
   return (
     <main>
       <Heading className="text-3xl text-center mt-14">Dashboard</Heading>
 
       <div className="mt-14 grid grid-cols-3 gap-9">
-        {portfolios.map((portfolio, index) => (
+        {portfoliosWithUser.map((portfolio, index) => (
           <PortfolioCard
             key={portfolio.id}
             index={index}

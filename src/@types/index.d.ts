@@ -1,4 +1,5 @@
 export type User = {
+  id: string
   name: string
   lastName: string
   avatarUrl: string
@@ -8,10 +9,10 @@ export type User = {
 
 export type Portfolio = {
   id: string
+  userId: string
   published: boolean
   likes: number
   visited: number
-  user: User
 }
 
 export type Skills = {

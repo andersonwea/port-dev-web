@@ -3,11 +3,16 @@
 import { InMemoryPortfoliosRepository } from '@/database/in-memory-portfolios-repository'
 import { InMemoryUsersRepository } from '@/database/in-memory-users-repository'
 
-export async function getUserPortfolios() {
-  const inMemoryUsersRepository = new InMemoryUsersRepository()
-  const inMemoryPortfoliosRepository = new InMemoryPortfoliosRepository()
+interface GetPortfoliosProps {
+  search?: string
+  page: number
+}
 
-  const portfolios = inMemoryPortfoliosRepository.findManyByUserId('1')
+export async function getPortfolios({ search, page }: GetPortfoliosProps) {
+  const inMemoryPortfoliosRepository = new InMemoryPortfoliosRepository()
+  const inMemoryUsersRepository = new InMemoryUsersRepository()
+
+  const portfolios = inMemoryPortfoliosRepository.findMany(page)
 
   const portfoliosWithUser = portfolios.map((portfolio) => {
     const user = inMemoryUsersRepository.findById(portfolio.userId)

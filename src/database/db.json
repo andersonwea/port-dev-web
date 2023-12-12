@@ -826,83 +826,85 @@
     {
       "id": "1",
       "userId": "1",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "2",
       "userId": "2",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "3",
       "userId": "3",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "4",
       "userId": "4",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "5",
       "userId": "5",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "6",
       "userId": "6",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "7",
       "userId": "7",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "8",
       "userId": "8",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "9",
       "userId": "9",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "10",
       "userId": "10",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "11",
       "userId": "11",
-      "likes": "10",
-      "visited": "5",
+      "likes": 10,
+      "visited": 5,
       "published": true
     },
     {
       "id": "12",
       "userId": "12",
+      "likes": 10,
+      "visited": 5,
       "published": true
     }
   ],
@@ -1149,5 +1151,6 @@
       "portfolioId": "12",
       "projectId": "12"
     }
-  ]
+  ],
+  "liked_portfolios": []
 }
